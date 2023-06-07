@@ -18,7 +18,7 @@ if (!artwork) {
 }
 
     user.findOneAndUpdate(
-        { username: req.params.username },
+        { username: username },
         { $push: { collection: artworkId } },
         function(err, result) {
             if (err) {
