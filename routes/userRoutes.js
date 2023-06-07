@@ -1,11 +1,51 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const bcrypt = require('bcryptjs');
 
 router.post('/register', (req, res) => {
-    //register new user
-    //using the user model to create a new user in the datebase
-    //need to hash the users password before saving it
+    bcrypt.hash(req.body.password, 10, function(err, hashedPass) {
+        if(err) {
+            res.json({error: err});
+        }
+        let user = new User({
+            username: req.body.username,
+            email: req.body.email,
+            password: hashedPass
+        });
+        user.save()
+        .then(user => {
+            res.json({message: 'User Added Successfully'});
+        })
+        .catch(error => {
+            res.json({message: 'An error occurred'});
+        });
+    });
+});
+
+router.post('/login', (req, res) => {
+    var username = req.body.username;
+    var password = req.body.password;
+
+    User.findOne({username: username})
+    .then(user => {
+        if(user) {
+            bcrypt.compare(password, user.password, function(err, result) {
+                if(err) {
+                    res.json({error: err});
+                }
+                if(result) {
+                    //password match you  can generate a token 
+                    res.json({message: 'Login Successful'});
+                } else {
+                    //if password doesnt match
+                    res.json({message: 'Incorrect Password'});
+                }
+            })
+        } else {
+            res.json({message: 'No user found'});
+        }
+    });
 });
 
 router.get('/:username/collection', function(req, res)  {
