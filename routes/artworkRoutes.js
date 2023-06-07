@@ -2,8 +2,21 @@ const express = require('express');
 const router = express.router();
 const Artwork = require('../models/artwork');
 
-router.put('/:username/collection/add', (req, res) => {
+router.put('/:username/collection/add', async (req, res) => {
     const artworkId = req.body.artworkId;
+    const username = req.params.username;
+
+    const user = await User.findOne({ username: username });
+    const artwork = await Artwork.findById(artworkId);
+
+if (!user) {
+    return res.status(404).json({ message: 'User not found' });
+}
+
+if (!artwork) {
+    return res.status(404).json({ message: 'Artowrk not found' });
+}
+
     user.findOneAndUpdate(
         { username: req.params.username },
         { $push: { collection: artworkId } },
