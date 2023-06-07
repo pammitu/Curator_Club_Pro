@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
             res.json({message: 'User Added Successfully'});
         })
         .catch(error => {
-            res.json({message: 'An error occurred'});
+            res.json({message: 'An error occurred', error: error});
         });
     });
 });

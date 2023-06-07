@@ -17,7 +17,7 @@ router.put('/:username/collection/add', (req, res) => {
     );
 });
 
-router.get('/seearch', (req, res) => {
+router.get('/search', (req, res) => {
     let query = req.query.q;
     Artwork.find({ $text: { $search: query } }, function(err, artworks) {
         if (err) return res.status(500).send(err);

@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const mongoose = require('mongoose');
-const userRoutes = require('.routes/userRoutes');
+const userRoutes = require('./routes/userRoutes');
 const artworkRoutes = require('./routes/artworkRoutes');
 
 app.use('/user', userRoutes);
