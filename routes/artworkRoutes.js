@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.router();
+const User = require('../models/user');
+const Artwork = require('../models/artwork');
 const Artwork = require('../models/artwork');
 
 router.put('/:username/collection/add', async (req, res) => {
@@ -30,11 +32,34 @@ if (!artwork) {
     );
 });
 
-router.get('/search', (req, res) => {
+router.get('/search/met', (req, res) => {
     let query = req.query.q;
-    Artwork.find({ $text: { $search: query } }, function(err, artworks) {
-        if (err) return res.status(500).send(err);
-        res.send(artworks);
+    axios.get('https://api.museum.com/artworks', {
+        params: {
+            q: query
+        }
+    })
+    .then(response => {
+        res.send(response.data);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    });
+});
+
+router.get('/search/europeana', (req,res) => {
+    let query = req.query.q;
+    axios.get('https://api.europeana.eu/record/v@/search.son', {
+        params: {
+            query: query,
+            wskey: process.env.EUROPEANA_API_KEY //the API key should be stored in env variable
+        }
+    })
+    .then(response => {
+        res.send(response.data);
+    })
+    .catch(error => {
+        res.status(500).send(error);
     });
 });
 
