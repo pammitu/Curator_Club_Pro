@@ -3,6 +3,7 @@ const router = express.router();
 const User = require('../models/user');
 const Artwork = require('../models/artwork');
 const Artwork = require('../models/artwork');
+const { MET_API_BASE_URL, EUROPEANA_API_BASE_URL } = require('../config(constants');
 
 router.put('/:username/collection/add', async (req, res) => {
     const artworkId = req.body.artworkId;
@@ -34,7 +35,7 @@ if (!artwork) {
 
 router.get('/search/met', (req, res) => {
     let query = req.query.q;
-    axios.get('https://api.museum.com/artworks', {
+    axios.get(`${MET_API_BASE_URL}/artworks`, {
         params: {
             q: query
         }
@@ -49,7 +50,7 @@ router.get('/search/met', (req, res) => {
 
 router.get('/search/europeana', (req,res) => {
     let query = req.query.q;
-    axios.get('https://api.europeana.eu/record/v@/search.son', {
+    axios.get(`${EUROPEANA_API_BASE_URL}/search.json`, {
         params: {
             query: query,
             wskey: process.env.EUROPEANA_API_KEY //the API key should be stored in env variable
