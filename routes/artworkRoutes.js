@@ -22,9 +22,9 @@ if (!artwork) {
         { $push: { collection: artworkId } },
         function(err, result) {
             if (err) {
-                res.send(err);
+                return res.status(500).json({ message:' An error occured', error: err});
             } else {
-                res.send(result);
+                return res.status(200).json(result);
             }
         }
     );

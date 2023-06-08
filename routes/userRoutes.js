@@ -13,48 +13,51 @@ router.post('/register', async (req, res) => {
     }
 
     bcrypt.hash(password, 10, function(err, hashedPass) {
-        if(err) {
-            res.json({error: err});
+        if (err) {
+            return res.status(500).json({message: 'An error occurred', error: err});
         }
-        let user = new User({
-            username: req.body.username,
-            email: req.body.email,
+        let newUser = new User({
+            username: username,
+            email: email,
             password: hashedPass
         });
-        user.save()
+        newUser.save()
         .then(user => {
-            res.json({message: 'User Added Successfully'});
+            res.status(201).json({message: 'User Added Successfully'});
         })
         .catch(error => {
-            res.json({message: 'An error occurred', error: error});
+            res.status(500).json({message: 'An error occurred', error: error});
         });
     });
 });
 
-router.post('/login', (req, res) => {
+const jwt = require('jsonwebtoken');
+
+router.post('/login', async (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
 
-    User.findOne({username: username})
-    .then(user => {
-        if(user) {
-            bcrypt.compare(password, user.password, function(err, result) {
-                if(err) {
-                    res.json({error: err});
-                }
-                if(result) {
-                    //password match you  can generate a token 
-                    res.json({message: 'Login Successful'});
-                } else {
-                    //if password doesnt match
-                    res.json({message: 'Incorrect Password'});
-                }
-            })
-        } else {
-            res.json({message: 'No user found'});
+    const user = await User.findOne({username: username});
+
+    if (!user) {
+        return res.status(404).json({ mesage: 'No user found '});
+    }
+
+    bcrypt.compare(password, user.password, function(err, result) {
+        if (err) {
+            return res.status(500).json({ error: err });
         }
+        if (result) {
+            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+            return res.status(200).json({ message: 'Login Successful', token: token });
+        } else {
+            return res.status(401).json({ message: 'Incorrect Password' });
+        }
+        });
     });
-});
+
+     
+
 
 router.get('/:username/collection', function(req, res)  {
     User
