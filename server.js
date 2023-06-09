@@ -1,3 +1,6 @@
+const express = require('express');
+const app = express();
+
 require('dotenv').config();
 
 const mongoose = require('mongoose');
@@ -15,3 +18,7 @@ mongoose.connect(process.env.DB_URI, {
 
 .then(() => console.log('Database connection successful'))
 .catch((err) => console.log(`Database connection error:${err}`));
+
+app.listen(5000, () => {
+    console.log("Server running on port 5000");
+});

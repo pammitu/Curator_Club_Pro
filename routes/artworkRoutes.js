@@ -1,9 +1,8 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 const User = require('../models/user');
 const Artwork = require('../models/artwork');
-const Artwork = require('../models/artwork');
-const { MET_API_BASE_URL, EUROPEANA_API_BASE_URL } = require('../config(constants');
+const { MET_API_BASE_URL, EUROPEANA_API_BASE_URL } = require('../config/constants');
 
 router.put('/:username/collection/add', async (req, res) => {
     const artworkId = req.body.artworkId;
@@ -22,7 +21,7 @@ if (!artwork) {
 
     user.findOneAndUpdate(
         { username: username },
-        { $push: { collection: artworkId } },
+        { $push: { artworkCollection: artworkId } },
         function(err, result) {
             if (err) {
                 return res.status(500).json({ message:' An error occured', error: err});

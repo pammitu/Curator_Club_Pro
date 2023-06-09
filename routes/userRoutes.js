@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
 router.get('/:username/collection', function(req, res)  {
     User
     .findOne({ username: req.params.username })
-    .populate('collection')
+    .populate('artworkCollection')
     .exec(function (err,user) {
         if (err) return res.status(500).send(err);
         res.send(user.collection);
