@@ -7,8 +7,8 @@ function FindArtwork () {
 
     const handleSearch = async () => {
         try{
-            const response = await axios.get(`/api/search/artwork/${query}`);
-            setArtworks(response.data.artworks);
+            const response = await axios.get(`/artworks/search/met?query=${query}`);
+            setArtworks(response.data);
         } catch (err) {
             console.error(err);
         }
@@ -17,7 +17,9 @@ function FindArtwork () {
     const handleAddToFavorites= async (artwork) => {
         try {
             //add the artwork to the users favorites adjust this to match
-            await axios.post('/api/favorites', { artworkID: artwork.id });
+            await axios.put('http://localhost:5000/artworks/artlover/collection/add', { 
+                artworkID: artwork.id 
+            });
         } catch (err) {
             console.error(err);
         }
@@ -37,7 +39,7 @@ function FindArtwork () {
                 <div key={artwork.id}>
                     <h2>{artwork.title}</h2>
                     <img src={artwork.imageUrl} alt={artwork.title} />
-                    <button onClick={() => handleAddToFavorites()}>Add to Favorites</button>
+                    <button onClick={() => handleAddToFavorites(artwork)}>Add to Favorites</button>
                 </div>
             ))}
         </div>
