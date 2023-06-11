@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from '../components/Layout';
-import HomePage from '../components/HomePage';
+import MainPage from '../components/MainPage';
 import SignIn from '../components/SignIn';
 import NewGalleryForm from '../components/NewGalleryForm';
 import FindArtist from '../components/FindArtist';
@@ -14,13 +14,13 @@ function App () {
         <Router>
             <Layout>
                 <Routes>
-                    <Route path="/signin" component={SignIn}/>
-                    <Route path="/new-gallery" component={NewGalleryForm}/>
-                    <Route path="/find-artist" component={FindArtist}/>
-                    <Route path="/find-artwork" component={FindArtwork}/>
-                    <Route path="/favorites" component={Favorites}/>
-                    <Route path="/library" component={Library}/>
-                    <Route path="/" component={HomePage}/>
+                    <Route path="/signin" element={<SignIn/>}/>
+                    <Route path="/new-gallery" element={<NewGalleryForm/>}/>
+                    <Route path="/find-artist" element={<FindArtist/>}/>
+                    <Route path="/find-artwork" element={<FindArtwork/>}/>
+                    <Route path="/favorites" element={<Favorites/>}/>
+                    <Route path="/library" element={<Library/>}/>
+                    <Route path="/" element={<HomePage/>}/>
                 </Routes>
             </Layout>
         </Router>
