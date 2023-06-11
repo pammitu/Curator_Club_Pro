@@ -21,7 +21,7 @@ function FindArtist() {
             console.error(err);
         }
     }
-    const handleAddTofavorite = async (artwork) => {
+    const handleAddToFavorites = async (artwork) => {
         try {
             await axios.put('http://localhost:5000/artworks/artlover/collection/add', {
                 artworkId: artwork.id
@@ -52,7 +52,7 @@ function FindArtist() {
                 </div>
             ))}
             <h2>Favorite Artworks</h2>
-            {favoriteArtowkrs.map((artwork, index) => (
+            {favoriteArtworks.map((artwork, index) => (
                 <div key={index}>
                     <h3>{artwork.title}</h3>
                     <p>{artwork.description}</p>

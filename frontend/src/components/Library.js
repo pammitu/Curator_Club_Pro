@@ -1,12 +1,12 @@
-import React, { userEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Gallery from './Gallery';
 
 function Library() {
     const [galleries, setGalleries] = useState([]);
 
-    userEffect(() => {
-        constfetchGalleries = async () => {
+    useEffect(() => {
+        const fetchGalleries = async () => {
             try {
                 //replacec url ith actual fetch galleries enpoint
                 //and deplace artlover with act username

@@ -23,7 +23,7 @@ function SignIn() {
     const handleSignIn = async (e) => {
         e.preventDefault() ;
         try {
-            const respponse = await axios.post('/user/login', {email, password});
+            const response = await axios.post('/user/login', {email, password});
             if (response.data) {
                 //avigate to home page
             }
@@ -36,9 +36,9 @@ function SignIn() {
         <div>
             {isSigningUp ? <h1>Sign Up</h1> : <h1>Sign In</h1>}
             {error && <p>{error}</p>}
-            <form onSubmit={isSigningUP ? handleSignUp : handleSignIn}>
+            <form onSubmit={isSigningUp ? handleSignUp : handleSignIn}>
                 <label>Email:</label>
-                <imput
+                <input
                     type="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
