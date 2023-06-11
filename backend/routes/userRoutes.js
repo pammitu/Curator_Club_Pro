@@ -6,11 +6,16 @@ const bcrypt = require('bcryptjs');
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
 
-    const user = await User.findOne({ username: username });
+   const userByUsername = await User.findOne({ username: username });
+   const userByEmail = await User.findOne({ email: email });
 
-    if (user) {
-        return res.status(400).json({ message: 'User already exists'});
-    }
+   if (userByUsername) {
+    return res.status(400).json({ message: 'Username already esists'});
+   }
+
+   if (userByEmail) {
+    return res.status(400).json({ message: 'Email already exists'});
+   }
 
     bcrypt.hash(password, 10, function(err, hashedPass) {
         if (err) {
@@ -65,11 +70,11 @@ router.get('/:username/collection', function(req, res)  {
     .populate('artworkCollection')
     .exec(function (err,user) {
         if (err) return res.status(500).send(err);
-        res.send(user.collection);
+        res.send(user.artworkCollection);
     });
 });
 
-router.get('/:username/faavorites', async (req, res) => {
+router.get('/:username/favorites', async (req, res) => {
     const username = req.params.username;
 
     try{
