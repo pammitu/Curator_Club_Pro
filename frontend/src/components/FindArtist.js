@@ -15,18 +15,23 @@ function FindArtist() {
         e.preventDefault();
         try {
             //replace search with your actual search endpoint
-            const response = await axios.get(`/search?query=${searchQuery}`);
+            const response = await axios.get(`/search/artist?query=${searchQuery}`);
             setSearchResults(response.data);
         } catch (err) {
             console.error(err);
         }
     }
-    const handleAddTofavorite =(artwork) => {
-        //add the selcted artwork to the lsit of favoritre artworks
-        setFavoriteArtworks([...favoriteArtworks, artwork]);
-        //here you willneed to implement adding an artwork to the users favorites
-        //this could involve making a post request to your backend api
+    const handleAddTofavorite = async (artwork) => {
+        try {
+            await axios.put('http://localhost:5000/artworks/artlover/collection/add', {
+                artworkId: artwork.id
+            });
+            setFavoriteArtworks([...favoriteArtworks, artwork]);
+        } catch (err) {
+            console.error(err);
+        }
     }
+
     return (
         <div>
             <h1>Find an Artist</h1>
