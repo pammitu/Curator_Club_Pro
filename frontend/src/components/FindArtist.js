@@ -1,6 +1,5 @@
 import React, {useState } from 'react';
 import axios from 'axios';
-import artwork from '../../../backend/models/artwork';
 
 function FindArtist() {
     const [searchQuery, setSearchQuery] = useState("");
