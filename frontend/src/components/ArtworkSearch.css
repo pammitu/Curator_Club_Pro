@@ -89,11 +89,11 @@ input {
   transition: all 240ms ease-out;
   width: 100%;
 
-  &::placeholder {
+  input::placeholder {
     color: #6d7f8f;
   }
 
-  &:focus {
+  input:focus {
     outline: none;
     color: #6d7f8f;
     background-color: lighten(#e3edf7, 3%);
