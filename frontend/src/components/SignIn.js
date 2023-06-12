@@ -12,7 +12,7 @@ function SignIn() {
         try {
             const response = await axios.post('/user/register', { email, password});
             if (response.data) {
-                //navigate to home page
+                //navigate to main page
                 //you can use react-routers usehistory hook for navigation
             }
         } catch (err) {
