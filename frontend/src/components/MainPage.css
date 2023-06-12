@@ -4,13 +4,14 @@
 
 
 .main-page__welcome {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 2rem;
 }
 
 .main-page__nav {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .main-page__list {
@@ -21,18 +22,21 @@
 
 .main-page__item {
     margin: 1rem;
+    flex: 1;
 }
 
 .main-page__link {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem; /* Increased padding to make the box larger */
     font-weight: bold;
     text-decoration: none;
     color: black;
     border: 2px solid black;
     transition: background-color 0.3s;
-}
+    width: 100%; /* Added width to occupy full space in the flex container */
+  }
 
-.main-page__link:hover {
-    background-color: #f5f5f5;
-}
+  .main-page__link:hover {
+    background-color: #888; /* Changed to a darker gray color */
+    color: white; /* Added to change text color on hover */
+  }

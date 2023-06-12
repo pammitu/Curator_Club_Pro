@@ -3,42 +3,35 @@ import axios from 'axios';
 import './ArtworkSearch.css';
 
 function ArtworkSearch() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
-    const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState('')
 
-    const favoriteArtwork = async (artwork) => {
-      try {
-        await axios.post(`/api/favorites/${artwork.id}`, artwork);
-        artwork.favorites = true;
-      } catch (error) {
-        console.error(error);
-      }
-    };
     
 
-    const search = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await axios.get(`/api/artworks/search/met?q=${searchQuery}`);
-            const searchData = response.data;
-            console.log(searchData); 
-    
-            // Limit the number of IDs to 10 using slice
-            const limitedIDs = searchData.objectIDs.slice(0, 200);
-    
-            // Use the Promise.all method to fetch all object details concurrently
-            const details = await Promise.all(limitedIDs.map(async id => {
-                const detailResponse = await axios.get(`${'https://collectionapi.metmuseum.org/public/collection/v1'}/objects/${id}`);
-                return detailResponse.data;
-            }));
-    
-            // Now details is an array of object data, so you can set it as the search results
-            setSearchResults(details);
-        } catch (error) {
-            setError(error.message);
-        }
-    };
+  const search = async (event) => {
+    event.preventDefault();
+    try {
+        const response = await axios.get(`/api/artworks/search/met?q=${searchQuery}`);
+        const searchData = response.data;
+        console.log(searchData); 
+
+        // Limit the number of IDs to 10 using slice
+        const limitedIDs = searchData.objectIDs.slice(0, 10);
+
+        // Use the Promise.all method to fetch all object details concurrently
+        const details = await Promise.all(limitedIDs.map(async id => {
+          const detailResponse = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
+            return detailResponse.data;
+        }));
+
+        // Now details is an array of object data, so you can set it as the search results
+        setSearchResults(details);
+    } catch (error) {
+        setError(error.message);
+    }
+};
+
     
     return (
       <div>
@@ -59,9 +52,6 @@ function ArtworkSearch() {
             {result.primaryImage && <img className="artwork-image" src={result.primaryImage} alt={result.title} />}
             <h3>{result.title}</h3>
             <p>{result.artistDisplayName}</p>
-            <button onClick={() => favoriteArtwork(result)}>
-              {result.favorites ? "♥" : "♡"}
-            </button>
           </div>
         ))}
         </div>
