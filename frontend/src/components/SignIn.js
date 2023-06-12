@@ -34,9 +34,10 @@ function SignIn() {
 
     return (
         <div>
+
             {isSigningUp ? <h1>Sign Up</h1> : <h1>Sign In</h1>}
             {error && <p>{error}</p>}
-            <form onSubmit={isSigningUp ? handleSignUp : handleSignIn}>
+            <form className="sign-in-form" onSubmit={isSigningUp ? handleSignUp : handleSignIn}>
                 <label>Email:</label>
                 <input
                     type="email"

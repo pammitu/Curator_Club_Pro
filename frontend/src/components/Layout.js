@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
     return (
         <div>
             <header>
-                <h1>Curator Club Pro</h1>
+                <h1>CURATOR CLUB PRO</h1>
             </header>
 
             <main>

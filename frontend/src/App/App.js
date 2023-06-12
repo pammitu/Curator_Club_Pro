@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import MainPage from '../components/MainPage';
 import SignIn from '../components/SignIn';
@@ -20,7 +20,8 @@ function App () {
                     <Route path="/find-artwork" element={<FindArtwork/>}/>
                     <Route path="/favorites" element={<Favorites/>}/>
                     <Route path="/library" element={<Library/>}/>
-                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/" element={<MainPage/>}/>
+                    <Route path="*" element={<Navigate to="/signin" />} />
                 </Routes>
             </Layout>
         </Router>
