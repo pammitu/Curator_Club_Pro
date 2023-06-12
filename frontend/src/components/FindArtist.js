@@ -1,5 +1,6 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+
 
 function FindArtist() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -14,8 +15,16 @@ function FindArtist() {
         e.preventDefault();
         try {
             //replace search with your actual search endpoint
-            const response = await axios.get(`/api/artworks/search/artist?query=${searchQuery}`);
-            setSearchResults(response.data);
+            const metResponse = await axios.get(`/api/artworks/search/met?q=${searchQuery}`);
+            const metData = metResponse.data;
+
+            const europeanaResponse = await axios.get(`/api/artworks/search/europeana?q=${searchQuery}`);
+            const europeanaData = europeanaResponse.data;
+
+            const combinedResults = [...metData, ...europeanaData];
+
+            setSearchResults(combinedResults);
+
         } catch (err) {
             console.error(err);
         }

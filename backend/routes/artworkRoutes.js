@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require('../models/user');
 const Artwork = require('../models/artwork');
 const { MET_API_BASE_URL, EUROPEANA_API_BASE_URL } = require('../config/constants');
+const axios = require('axios');
+
 
 router.put('/:username/collection/add', async (req, res) => {
     const artworkId = req.body.artworkId;
