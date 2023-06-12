@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './NewGalleryForm.css';
 
 function NewGalleryForm() {
     const [title, setTitle] = useState("");
@@ -44,17 +45,19 @@ const handleSelectArtwork = (artwork) => {
 
 
 return (
-    <div>
+    <div className="container">
         <h1>Create a New Gallery</h1>
-        <form onSubmit={handleFormSubmit}>
+        <form className="form" onSubmit={handleFormSubmit}>
             <label>Title:</label>
             <input
+                className="input"
                 type="text"
                 value={title}
                 onChange={handleTitleChange}
             />
             <label>Description:</label>
             <textarea
+            className="textarea"
                 value={description}
                 onChange={handleDescriptionChange}
             />
@@ -71,7 +74,7 @@ return (
         </form>
         <h2>Search Results</h2>
         { searchResults.map((result, index) => (
-            <div key={index}>
+            <div className="artwork" key={index}>
                 <h3>{result.title}</h3>
                 <p>{result.description}</p>
                 <button onClick={() => handleSelectArtwork(result)}>Add to Gallery</button> {/*addbutton to add arwork to gallert*/}
