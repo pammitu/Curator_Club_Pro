@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
-router.post('/register', async (req, res) => {
+router.post('/api/user/register', async (req, res) => {
     console.log('Register endpoint reached');
     const { username, email, password } = req.body;
 
@@ -39,7 +39,7 @@ router.post('/register', async (req, res) => {
 
 const jwt = require('jsonwebtoken');
 
-router.post('/login', async (req, res) => {
+router.post('/api/user/login', async (req, res) => {
     console.log('Login endpoint reached')
     var username = req.body.username;
     var password = req.body.password;
