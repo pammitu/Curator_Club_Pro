@@ -7,7 +7,6 @@ import './MainPage.css'
 function MainPage() {
     return (
         <div className="main-page">
-            <h1 className="main-page__title">Curator Club Pro</h1>
             <p className="main-page__welcome">Welcome!</p>
             <nav className="main-page__nav">
                 <ul className="main-page__list">

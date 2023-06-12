@@ -6,6 +6,10 @@ body {
     margin: 0;
     padding: 0;
 }
+header a {
+    text-decoration: none;
+    color: black;
+}
 
 header {
     display: flex;
