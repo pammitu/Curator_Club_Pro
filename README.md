@@ -1,4 +1,4 @@
-# Curator_Club_Pro
+# Curator Club Pro
 
 Curator Club Pro” is a a space for artists and curators to create their own virtual art gallery using data from the MET Museum of Art and European Museum of Art API’s. This is a space for beginners to experts to explore their interests in visual art to find inspiration, curate their own favorite pieces, and learn about art. Many iconic painting and illustrations are located in international museums that cannot be seen without making a whole trip. Here anyone can seen, save and share any work they love. 
 
