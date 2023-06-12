@@ -70,6 +70,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const User = require('../models/user');
 
 const { MET_API_BASE_URL } = require('../config/constants');
 
@@ -78,15 +79,21 @@ router.put('/:username/collection/add', async (req, res) => {
   const username = req.params.username;
 
   try {
-    // Add your logic to update the user's artwork collection
-    // based on the artworkId and username
-    // ...
+    const user = await User.findOne({ username });
 
-    return res.status(200).json({ message: 'Artwork added to collection' });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ message: 'An error occurred', error: err });
-  }
+    if (!user) {
+        return res.status(404).json({ message: 'User not found'});
+    }
+
+        user.artworks.push(artworkId);
+
+        await user.save();
+
+        return res.status(200).json({ message: 'Artwork added to collection' });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: 'An error occurred', error: err });
+    }
 });
 
 router.get('/search/met', (req, res) => {
