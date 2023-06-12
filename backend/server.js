@@ -14,7 +14,8 @@ const path = require('path');
 
 app.use(express.static(path.join(__dirname, '../../frontend')));
 
-mongoose.connect(process.env.DB_URI, {
+mongoose.connect(process.env.DATABASE_URL, {
+
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
