@@ -89,7 +89,7 @@ router.put('/:username/collection/add', async (req, res) => {
   }
 });
 
-router.get('/api/artworks/search/met', (req, res) => {
+router.get('/search/met', (req, res) => {
     let query = req.query.q;
     axios
       .get(`${MET_API_BASE_URL}/search`, {
