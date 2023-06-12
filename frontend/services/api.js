@@ -31,14 +31,6 @@ export async function searchArtworkMet(query){
     return response.data;
 }
 
-export async function searchArtworkEuropeana(query){
-    const response = await axios.get(`${API_URL}/artworks/search/europeana`, {
-        params: {
-            q: query
-        }
-    });
-    return response.data;
-}
 
 export async function addToCollection(username, artworkId) {
     const response = await axios.put(`${API_URL}/artworks/${username}/collection/add`, { artworkId: artworkId });

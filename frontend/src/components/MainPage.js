@@ -15,11 +15,8 @@ function MainPage() {
                         <Link to="/new-gallery" className="main-page__link">New Gallery Form</Link>
                         </li>
                     <li className="main-page__item">
-                        <Link to="/find-artist" className="main-page__link">Find an Artist</Link>
+                        <Link to="/artwork-search" className="main-page__link">Artwork Search</Link>
                     </li>
-                    <li className="main-page__item">
-                        <Link to="/find-artwork" className="main-page__link">Find An Artwork</Link>
-                        </li>
                     <li className="main-page__item">
                         <Link to="/favorites" className="main-page__link">Favorites</Link>
                         </li>

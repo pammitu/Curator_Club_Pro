@@ -4,8 +4,7 @@ import Layout from '../components/Layout';
 import MainPage from '../components/MainPage';
 import SignIn from '../components/SignIn';
 import NewGalleryForm from '../components/NewGalleryForm';
-import FindArtist from '../components/FindArtist';
-import FindArtwork from '../components/FindArtwork';
+import ArtworkSearch from '../components/ArtworkSearch';
 import Favorites from '../components/Favorites';
 import Library from '../components/Library';
 
@@ -20,8 +19,7 @@ function App () {
                     <Route path="/signin" element={<SignIn/>}/>
                     <Route path="/mainpage" element={<MainPage />} />
                     <Route path="/new-gallery" element={<NewGalleryForm/>}/>
-                    <Route path="/find-artist" element={<FindArtist/>}/>
-                    <Route path="/find-artwork" element={<FindArtwork/>}/>
+                    <Route path="/artwork-search" element={<ArtworkSearch/>}/>
                     <Route path="/favorites" element={<Favorites/>}/>
                     <Route path="/library" element={<Library/>}/>
                     <Route path="*" element={<Navigate to="/mainpage" />} />
