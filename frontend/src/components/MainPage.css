@@ -1,42 +1,48 @@
 .main-page {
     text-align: center;
-}
-
-
-.main-page__welcome {
-    font-size: 2.5rem;
+  }
+  
+  .main-page__title {
+    font-size: 2rem;
     margin-bottom: 2rem;
-}
-
-.main-page__nav {
+  }
+  
+  .main-page__nav {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-}
-
-.main-page__list {
+  }
+  
+  .main-page__list {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.main-page__item {
+  }
+  
+  .main-page__item {
     margin: 1rem;
-    flex: 1;
-}
-
-.main-page__link {
-    display: inline-block;
-    padding: 1rem 2rem; /* Increased padding to make the box larger */
-    font-weight: bold;
+  }
+  
+  .main-page__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
     color: black;
-    border: 2px solid black;
-    transition: background-color 0.3s;
-    width: 100%; /* Added width to occupy full space in the flex container */
   }
-
+  
+  .main-page__image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .main-page__link-text {
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+  
   .main-page__link:hover {
-    background-color: #888; /* Changed to a darker gray color */
-    color: white; /* Added to change text color on hover */
+    background-color: #f5f5f5;
   }
+  

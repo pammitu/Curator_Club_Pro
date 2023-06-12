@@ -5,7 +5,6 @@ import MainPage from '../components/MainPage';
 import SignIn from '../components/SignIn';
 import NewGalleryForm from '../components/NewGalleryForm';
 import ArtworkSearch from '../components/ArtworkSearch';
-import Favorites from '../components/Favorites';
 import Library from '../components/Library';
 
 function App () {
@@ -20,7 +19,6 @@ function App () {
                     <Route path="/mainpage" element={<MainPage />} />
                     <Route path="/new-gallery" element={<NewGalleryForm/>}/>
                     <Route path="/artwork-search" element={<ArtworkSearch/>}/>
-                    <Route path="/favorites" element={<Favorites/>}/>
                     <Route path="/library" element={<Library/>}/>
                     <Route path="*" element={<Navigate to="/mainpage" />} />
                     </>
