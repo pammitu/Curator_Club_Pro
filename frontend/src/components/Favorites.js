@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Favorites.css';
 
 function Favorites() {
     const [favoriteArtworks, setFavoriteArtworks] = useState([]);
@@ -22,13 +23,15 @@ function Favorites() {
     return (
         <div>
             <h1>My Favorites</h1>
+            <div className='grid-container'>
             {favoriteArtworks.map((artwork, index) => (
-                <div key={index}>
+                <div className="grid-item" key={index}>
                     <h3>{artwork.title}</h3>
-                    <img src={artwork.imageUrl} alt={artwork.title} />
+                    <img className="artwork-image" src={artwork.imageUrl} alt={artwork.title} />
                     <p>{artwork.description}</p>
                 </div>
             ))}
+        </div>
         </div>
     );
 }

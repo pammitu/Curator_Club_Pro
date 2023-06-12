@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const favoritesRoutes = require('./routes/favoritesRoutes');
 app.use(cors());
 
 require('dotenv').config();
@@ -29,3 +30,5 @@ mongoose.connect(process.env.DATABASE_URL, {
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
+
+app.use('/api/favorites', favoritesRoutes);

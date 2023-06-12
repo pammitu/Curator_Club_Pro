@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './ArtworkSearch.css'
+import './ArtworkSearch.css';
 
 function ArtworkSearch() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [error, setError] = useState(null);
-  
+
+    const favoriteArtwork = async (artwork) => {
+      try {
+        await axios.post(`/api/favorites/${artwork.id}`, artwork);
+        artwork.favorites = true;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    
+
     const search = async (event) => {
         event.preventDefault();
         try {
@@ -30,7 +40,6 @@ function ArtworkSearch() {
         }
     };
     
-  
     return (
       <div>
         <h1>Find an Artwork</h1>
@@ -44,12 +53,15 @@ function ArtworkSearch() {
         </form>
         {error && <p>{error}</p>}
         <h2>Search Results</h2>
-        <div className="grid-container"> {/* Add a wrapper div with class for grid */}
+        <div className="grid-container">
         {searchResults.map((result, index) => (
-          <div className="grid-item" key={index}> {/* Each item is a grid-item */}
+          <div className="grid-item" key={index}>
             {result.primaryImage && <img className="artwork-image" src={result.primaryImage} alt={result.title} />}
             <h3>{result.title}</h3>
             <p>{result.artistDisplayName}</p>
+            <button onClick={() => favoriteArtwork(result)}>
+              {result.favorites ? "♥" : "♡"}
+            </button>
           </div>
         ))}
         </div>
@@ -57,5 +69,6 @@ function ArtworkSearch() {
     );
 }
   
-  export default ArtworkSearch;
-  
+export default ArtworkSearch;
+
+
