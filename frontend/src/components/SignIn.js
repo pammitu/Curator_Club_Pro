@@ -11,7 +11,7 @@ function SignIn() {
     const handleSignUp = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/user/register', { email, password});
+            const response = await axios.post('/api/user/register', { email, password});
             if (response.data) {
                 //navigate to main page
                 //you can use react-routers usehistory hook for navigation
@@ -24,7 +24,7 @@ function SignIn() {
     const handleSignIn = async (e) => {
         e.preventDefault() ;
         try {
-            const response = await axios.post('/user/login', {email, password});
+            const response = await axios.post('/api/user/login', {email, password});
             if (response.data) {
                 //avigate to home page
             }

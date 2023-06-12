@@ -15,8 +15,8 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, '../../frontend')));
 
 mongoose.connect(process.env.DB_URI, {
-    useNewURLParser: true,
-    useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 })
 
 .then(() => console.log('Database connection successful'))

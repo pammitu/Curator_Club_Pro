@@ -15,12 +15,12 @@ function App () {
             <Layout>
                 <Routes>
                     <Route path="/signin" element={<SignIn/>}/>
+                    <Route path="/mainpage" element={<MainPage />} />
                     <Route path="/new-gallery" element={<NewGalleryForm/>}/>
                     <Route path="/find-artist" element={<FindArtist/>}/>
                     <Route path="/find-artwork" element={<FindArtwork/>}/>
                     <Route path="/favorites" element={<Favorites/>}/>
                     <Route path="/library" element={<Library/>}/>
-                    <Route path="/" element={<MainPage/>}/>
                     <Route path="*" element={<Navigate to="/signin" />} />
                 </Routes>
             </Layout>
