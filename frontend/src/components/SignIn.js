@@ -33,26 +33,34 @@ function SignIn() {
     }
 
     return (
-        <div>
-
+        <div className="sign-in-wrapper">
+            <div className="title-container">
             {isSigningUp ? <h1>Sign Up</h1> : <h1>Sign In</h1>}
+            </div>
             {error && <p>{error}</p>}
             <form className="sign-in-form" onSubmit={isSigningUp ? handleSignUp : handleSignIn}>
+                <div className="input-container">
                 <label>Email:</label>
                 <input
                     type="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                 />
+                </div>
+
+                <div className="input-container">
                 <label>Password:</label>
                 <input 
                     type="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
+                </div>
+                <div className="button-container">
                 <button type="submit">{isSigningUp ? "Sign Up" : "Sign In "}</button>
+                </div>
             </form>
-            <button onClick={ () => setIsSigningUp(!isSigningUp)}>
+            <button className="switch-button" onClick={ () => setIsSigningUp(!isSigningUp)}>
                 {isSigningUp ? "Switch to Sign In" : "Switch to Sign Up"}
             </button>
         </div>
