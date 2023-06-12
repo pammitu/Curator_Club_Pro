@@ -4,6 +4,7 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
 router.post('/register', async (req, res) => {
+    console.log('Register endpoint reached');
     const { username, email, password } = req.body;
 
    const userByUsername = await User.findOne({ username: username });
@@ -39,6 +40,7 @@ router.post('/register', async (req, res) => {
 const jwt = require('jsonwebtoken');
 
 router.post('/login', async (req, res) => {
+    console.log('Login endpoint reached')
     var username = req.body.username;
     var password = req.body.password;
 
@@ -59,6 +61,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ message: 'Incorrect Password' });
         }
         });
+        console.log('Login successful');
     });
 
      
