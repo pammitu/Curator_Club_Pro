@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -9,6 +10,7 @@ const artworkRoutes = require('./routes/artworkRoutes');
 
 app.use('/api/user', userRoutes);
 app.use('/api/artworks', artworkRoutes);
+app.use(cors());
 
 const path = require('path');
 
