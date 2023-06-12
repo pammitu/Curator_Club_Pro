@@ -14,22 +14,23 @@ function FindArtist() {
         e.preventDefault();
         try {
             //replace search with your actual search endpoint
-            const response = await axios.get(`/search/artist?query=${searchQuery}`);
+            const response = await axios.get(`/api/artworks/search/artist?query=${searchQuery}`);
             setSearchResults(response.data);
         } catch (err) {
             console.error(err);
         }
-    }
+    };
+
     const handleAddToFavorites = async (artwork) => {
         try {
-            await axios.put('http://localhost:5000/artworks/artlover/collection/add', {
+            const response = await axios.put('/api/user/favorites', {
                 artworkId: artwork.id
             });
-            setFavoriteArtworks([...favoriteArtworks, artwork]);
+            setFavoriteArtworks([...favoriteArtworks, response.data]);
         } catch (err) {
             console.error(err);
         }
-    }
+    };
 
     return (
         <div>
