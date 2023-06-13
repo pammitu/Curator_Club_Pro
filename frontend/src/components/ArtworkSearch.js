@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './ArtworkSearch.css';
-import { searchArtworkMet } from '../../services/api';
+import { searchArtworkMet } from '../services/api';
 
 function ArtworkSearch() {
   const [searchQuery, setSearchQuery] = useState('');
