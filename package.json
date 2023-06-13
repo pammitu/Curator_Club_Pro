@@ -2,7 +2,7 @@
     "name": "curator-club-pro",
     "version": "1.0.0",
     "engines": {
-        "node": "19.8.1"
+        "node": "16.x"
     },
     "scripts": {
       "start": "npm run start-backend && npm run start-frontend",
