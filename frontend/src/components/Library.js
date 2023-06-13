@@ -10,7 +10,7 @@ function Library() {
             try {
                 //replacec url ith actual fetch galleries enpoint
                 //and deplace artlover with act username
-                const response = await axios.get('http://localhost:5000/user/artlover/galleries');
+                const response = await axios.get('https://curator-club-pro.herokuapp.com/api/galleries');
                 setGalleries(response.data);
             } catch (err) {
                 console.error(err);

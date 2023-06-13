@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001'; 
+const API_URL = 'https://curator-club-pro.herokuapp.com'; 
 
 export async function registerUser(userData) {
     const response = await axios.post(`${API_URL}/user/register`, userData);
