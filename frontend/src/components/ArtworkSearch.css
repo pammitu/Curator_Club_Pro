@@ -66,7 +66,7 @@
 label {
   font-family: "Hind", sans-serif;
   display: block;
-  color: #3c4b66;
+  color: #101620;
   margin-bottom: 12px;
   background: linear-gradient(45deg, rgba(107,123,143,1), #3c4b66);
   -webkit-background-clip: text;
@@ -98,4 +98,67 @@ input {
     color: #6d7f8f;
     background-color: lighten(#e3edf7, 3%);
   }
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.search-input {
+    width: 40%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.search-input:focus {
+    border-color: #007BFF;  /* Change this to the color you want when the input is focused */
+}
+
+.search-button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;  /* Change this to your desired button color */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-button:hover {
+    background-color: #0056b3;  /* Change this to your desired button hover color */
+}
+
+.results-title {
+    text-align: center;
+    font-size: 1.5em;  /* Adjust this to change the size of the title text */
+    color: #0c2035;  /* Adjust this to change the color of the title text */
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.results-title::after {
+    content: '';
+    display: block;
+    width: 60%;  /* Adjust this to change the width of the line */
+    height: 3px;  /* Adjust this to change the thickness of the line */
+    background: #4287d1;  /* Adjust this to change the color of the line */
+    position: absolute;
+    left: 20%;  /* Adjust this along with width to center the line */
+    bottom: 0;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 1.5em;  /* Adjust this to change the size of the main title */
+    color: #0a3461;  /* Adjust this to change the color of the main title */
+    margin-bottom: 2em;
 }

@@ -1,50 +1,88 @@
+body {
+    background-color: #fdf6e3;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2em;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #657b83;
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2em;
-    width: 50%
+    margin: 2em 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.input {
-    margin: 1em 0;
-    padding: 0.5em;
+.input,
+.textarea {
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid #93a1a1;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: border 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: #586e75;
+    outline: none;
 }
 
 .textarea {
-    margin: 1em 0;
-    padding: 0.5em;
-    height: 100px;
+    min-height: 150px;
+    resize: vertical;
 }
 
 button {
-    padding: 0.5em 1em;
-    margin-top: 1em;
-    background-color: #007BFF;
-    color: #fff;
+    padding: 10px 20px;
+    background-color: #2aa198;
     border: none;
-    border-radius: 5px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Add space between search input and button */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #26867f;
 }
 
 .artwork {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1em;
-    padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 50%;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 4px;
+    border: 2px solid #93a1a1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    width: 100%;
+    text-align: center;
+    color: #586e75;
+    margin: 20px 0;
+}
+
+h3, p {
+    width: 100%;
+    text-align: center;
+    color: #657b83;
 }

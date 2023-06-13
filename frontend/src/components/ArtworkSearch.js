@@ -35,17 +35,20 @@ function ArtworkSearch() {
     
     return (
       <div>
-        <h1>Find an Artwork</h1>
-        <form onSubmit={search}>
-          <input
+        <h1 className="main-title">Find an Artwork</h1>
+        <form onSubmit={search} className="search-form">
+        <input
+            className="search-input"
             type="text"
             value={searchQuery}
             onChange={event => setSearchQuery(event.target.value)}
-          />
-          <button type="submit">Search</button>
-        </form>
+            placeholder="Search for artwork..."
+        />
+        <button type="submit" className="search-button">Search</button>
+    </form>
+
         {error && <p>{error}</p>}
-        <h2>Search Results</h2>
+        <h2 className="results-title">SEARCH RESULTS</h2>
         <div className="grid-container">
         {searchResults.map((result, index) => (
           <div className="grid-item" key={index}>
