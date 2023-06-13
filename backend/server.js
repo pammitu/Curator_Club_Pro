@@ -15,11 +15,11 @@ app.use('/api/user', userRoutes);
 app.use('/api/artworks', artworkRoutes);
 
 
-// app.use(express.static(path.join(__dirname, '../../frontend/build')));
+app.use(express.static(path.join(__dirname, '../../frontend/build')));
 
-// app.use('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../../frontend/build/index.html'));
-// });
+app.use('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../frontend/build/index.html'));
+});
 
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
@@ -28,6 +28,11 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 .then(() => console.log('Database connection successful'))
 .catch((err) => console.log(`Database connection error:${err}`));
+
+app.get('/', (req, res) => {
+    res.send("Hello, World!");
+  });
+  
 
 app.listen(process.env.PORT || 5000, () => {
     console.log("Server running on port 5000");
