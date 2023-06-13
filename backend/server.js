@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const path = require('path');
 
 app.use(cors());
 
@@ -14,12 +15,13 @@ app.use('/api/user', userRoutes);
 app.use('/api/artworks', artworkRoutes);
 
 
-const path = require('path');
+app.use(express.static(path.join(__dirname, '../../frontend/build')));
 
-app.use(express.static(path.join(__dirname, '../../frontend')));
+app.use('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../frontend/build/index.html'));
+});
 
 mongoose.connect(process.env.DATABASE_URL, {
-
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
