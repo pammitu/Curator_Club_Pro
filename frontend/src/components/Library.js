@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Gallery from './Gallery';
 
 function Library() {
     const [galleries, setGalleries] = useState([]);
