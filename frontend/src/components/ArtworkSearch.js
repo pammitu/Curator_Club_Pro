@@ -12,12 +12,11 @@ function ArtworkSearch() {
   const search = async (event) => {
     event.preventDefault();
     try {
-        const response = await axios.get(`/api/artworks/search/met?q=${searchQuery}`);
+        const response = await axios.get(`https:/curator-club-pro.herokuapp.com//api/artworks/search/met?q=${searchQuery}`);
         const searchData = response.data;
         console.log(searchData); 
 
-        // Limit the number of IDs to 10 using slice
-        const limitedIDs = searchData.objectIDs.slice(0, 10);
+        const limitedIDs = searchData.objectIDs.slice(0, 60);
 
         // Use the Promise.all method to fetch all object details concurrently
         const details = await Promise.all(limitedIDs.map(async id => {
