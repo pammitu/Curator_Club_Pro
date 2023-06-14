@@ -49,11 +49,13 @@ function ArtworkSearch() {
         <h2 className="results-title">SEARCH RESULTS</h2>
         <div className="grid-container">
         {searchResults.map((result, index) => (
+           console.log(result.primaryImage);
           <div className="grid-item" key={index}>
             {result.primaryImage && <img className="artwork-image" src={result.primaryImage} alt={result.title} />}
             <h3>{result.title}</h3>
             <p>{result.artistDisplayName}</p>
           </div>
+
         ))}
         </div>
       </div>
