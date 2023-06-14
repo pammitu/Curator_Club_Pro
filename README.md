@@ -8,7 +8,7 @@ Curator Club Pro is a web application that allows users to create their own virt
 ## Getting Started
 <hr style="border: 1px solid #ccc"> 
 
-To checkout the app, simly visit the [deployed website.](https://monumental-longma-39f559.netlify.app/)
+To checkout the app, simly visit the [deployed website.](https://curator-club-pro.netlify.app/)
 
 You can also view the project's planning board on [Trello.](https://trello.com/invite/b/yXJ0ojoB/ATTI68dedbaf1512ab98967d8168f82d935eB9B17A55/capstone-project)
 
