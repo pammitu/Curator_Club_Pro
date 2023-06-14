@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const User = require('../models/user');
-const Gallery = require('../models/gallery');
+
 
 
 const { MET_API_BASE_URL } = require('../config/constants');
