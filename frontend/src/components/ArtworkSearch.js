@@ -11,8 +11,7 @@ function ArtworkSearch() {
   const search = async (event) => {
     event.preventDefault();
     try {
-        // const response = await axios.get(`https://curator-club-pro.herokuapp.com/api/artworks/search/met?q=${searchQuery}`);
-        // const searchData = response.data;
+        
         const searchData = await searchArtworkMet(searchQuery);
         console.log(searchData); 
 

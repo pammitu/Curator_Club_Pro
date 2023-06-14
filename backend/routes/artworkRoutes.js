@@ -4,7 +4,6 @@ const axios = require('axios');
 const User = require('../models/user');
 
 
-
 const { MET_API_BASE_URL } = require('../config/constants');
 
 router.put('/:username/collection/add', async (req, res) => {
@@ -62,15 +61,15 @@ router.post('/create', async (req, res) => {
 router.get('/artworks/search/met', (req, res) => {
     let query = req.query.q;
 
-    console.log("Query: ", query); // DEBUG: Check query
+    console.log("Query: ", query); 
 
-    axios.get(`${MET_API_BASE_URL}/search`, { params: { q: query } }) // Changed /search to /objects
+    axios.get(`${MET_API_BASE_URL}/search`, { params: { q: query } }) 
     .then(response => {
-        console.log("MET API Response: ", response.data); // DEBUG: Check response
+        console.log("MET API Response: ", response.data); 
         res.send(response.data);
     })
     .catch(error => {
-        console.error("MET API Error: ", error); // DEBUG: Check error
+        console.error("MET API Error: ", error); 
         res.status(500).send(error);
     });
 });

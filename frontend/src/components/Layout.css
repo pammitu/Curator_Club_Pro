@@ -23,7 +23,7 @@ h1 {
     font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 2px;
-    position: relative; /* Add this line */
+    position: relative; 
 }
 
 h1::after {
@@ -34,7 +34,7 @@ h1::after {
     transform: translateX(-50%);
     width: 60px;
     height: 2px;
-    background-color: #001f3f; /* Dark blue color */
+    background-color: #001f3f; 
 }
 
 main {

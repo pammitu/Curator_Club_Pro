@@ -117,7 +117,7 @@ input {
 }
 
 .search-input:focus {
-    border-color: #007BFF;  /* Change this to the color you want when the input is focused */
+    border-color: #007BFF;  
 }
 
 .search-button {
@@ -125,7 +125,7 @@ input {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF;  /* Change this to your desired button color */
+    background-color: #007BFF;  
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -133,13 +133,13 @@ input {
 }
 
 .search-button:hover {
-    background-color: #0056b3;  /* Change this to your desired button hover color */
+    background-color: #0056b3;  
 }
 
 .results-title {
     text-align: center;
-    font-size: 1.5em;  /* Adjust this to change the size of the title text */
-    color: #0c2035;  /* Adjust this to change the color of the title text */
+    font-size: 1.5em;  
+    color: #0c2035;  
     padding: 20px 0;
     position: relative;
     overflow: hidden;
@@ -148,17 +148,17 @@ input {
 .results-title::after {
     content: '';
     display: block;
-    width: 60%;  /* Adjust this to change the width of the line */
-    height: 3px;  /* Adjust this to change the thickness of the line */
-    background: #4287d1;  /* Adjust this to change the color of the line */
+    width: 60%;  
+    height: 3px;  
+    background: #4287d1;  
     position: absolute;
-    left: 20%;  /* Adjust this along with width to center the line */
+    left: 20%;  
     bottom: 0;
 }
 
 .main-title {
     text-align: center;
-    font-size: 1.5em;  /* Adjust this to change the size of the main title */
-    color: #0a3461;  /* Adjust this to change the color of the main title */
+    font-size: 1.5em; 
+    color: #0a3461; 
     margin-bottom: 2em;
 }

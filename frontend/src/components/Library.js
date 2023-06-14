@@ -7,8 +7,7 @@ function Library() {
     useEffect(() => {
         const fetchGalleries = async () => {
             try {
-                //replacec url ith actual fetch galleries enpoint
-                //and deplace artlover with act username
+                
                 const response = await axios.get('https://curator-club-pro.herokuapp.com/api/galleries');
                 setGalleries(response.data);
             } catch (err) {

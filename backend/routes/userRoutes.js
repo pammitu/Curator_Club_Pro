@@ -81,14 +81,11 @@ router.get('/:username/favorites', async (req, res) => {
     const username = req.params.username;
 
     try{
-        //find the user and populate the artwork collection field
         const user = await User.findOne({ username: username }).populate('artworkCollection');
 
         if (!user) {
             return res.status(404).json({ message: 'User Not Found'});
         } 
-
-        //send the populated artwork colelction field as the response
         res.status(200).json(user.artworkCollection);
     } catch (err) {
         res.status(500).json({ message: 'An error occurred', error : err });
