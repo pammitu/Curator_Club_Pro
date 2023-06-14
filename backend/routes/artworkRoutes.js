@@ -59,7 +59,7 @@ router.post('/create', async (req, res) => {
 });
 
 
-router.get('/api/artworks/search/met', (req, res) => {
+router.get('/artworks/search/met', (req, res) => {
     let query = req.query.q;
 
     console.log("Query: ", query); // DEBUG: Check query
