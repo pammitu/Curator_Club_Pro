@@ -23,7 +23,7 @@ export async function getFavorites(username) {
 }
 
 export async function searchArtworkMet(query){
-    const response = await axios.get(`${API_URL}/artworks/search/met`, {
+    const response = await axios.get(`${API_URL}/api/artworks/search/met`, {
         params: {
             q: query
         }
