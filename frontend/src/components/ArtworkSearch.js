@@ -31,6 +31,8 @@ function ArtworkSearch() {
 };
 
     
+console.log(searchResults); // Move the console.log statement here
+
     return (
       <div>
         <h1 className="main-title">Find an Artwork</h1>
@@ -49,7 +51,6 @@ function ArtworkSearch() {
         <h2 className="results-title">SEARCH RESULTS</h2>
         <div className="grid-container">
         {searchResults.map((result, index) => (
-           console.log(result.primaryImage);
           <div className="grid-item" key={index}>
             {result.primaryImage && <img className="artwork-image" src={result.primaryImage} alt={result.title} />}
             <h3>{result.title}</h3>
