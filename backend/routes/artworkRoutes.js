@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const User = require('../models/user');
+const Gallery = require('../models/gallery');
+
 
 const { MET_API_BASE_URL } = require('../config/constants');
 
@@ -25,6 +27,37 @@ router.put('/:username/collection/add', async (req, res) => {
         return res.status(500).json({ message: 'An error occurred', error: err });
     }
 });
+
+
+router.post('/create', async (req, res) => {
+    const {title, description, artworks, username} = req.body;
+
+    if(!username) {
+        return res.status(400).json({ message: 'Username is required'});
+    }
+
+    const user = await User.findOne ({ username});
+
+    if (!user) {
+        return res.status(404).json({ message: 'User not found'});
+    }
+
+    let newGallery = new Gallery({
+        title,
+        description, 
+        artworks,
+        user: user._id
+    });
+
+    newGallery.save()
+    .then(gallery=> {
+        res.status(201).json({message: 'Gallery created successfully', gallery});
+    })
+    .catch(error => {
+        res.status(500).json({message: 'An error occurred', error});
+    });
+});
+
 
 router.get('/search/met', (req, res) => {
     let query = req.query.q;

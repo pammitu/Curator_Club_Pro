@@ -31,6 +31,10 @@ export async function searchArtworkMet(query){
     return response.data;
 }
 
+export async function createNewGallery(galleryData) {
+    const response = await axios.post(`${API_URL}/api/galleries/create`, galleryData);
+    return response.data;
+}
 
 export async function addToCollection(username, artworkId) {
     const response = await axios.put(`${API_URL}/artworks/${username}/collection/add`, { artworkId: artworkId });

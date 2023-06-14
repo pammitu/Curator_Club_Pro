@@ -6,8 +6,7 @@ import { searchArtworkMet } from '../services/api';
 function ArtworkSearch() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [error, setError] = useState('')
-
+  const [error, setError] = useState('');
 
   const search = async (event) => {
     event.preventDefault();

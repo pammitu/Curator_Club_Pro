@@ -13,18 +13,14 @@ require('dotenv').config();
 
 app.use('/api/user', userRoutes);
 app.use('/api/artworks', artworkRoutes);
+app.use('/api', artworkRoutes);
 
 
-// app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.get('/', (req, res) => {
     res.send("Hello, World!");
   });
   
-
-// app.use('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-// });
 
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
